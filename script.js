@@ -1,5 +1,5 @@
 /* ========================================
-   PRECIFICAÍ — Landing Page Scripts
+   PRECIFICAI — Landing Page Scripts
    ======================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -22,8 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.getElementById('navLinks');
 
   navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
     navToggle.classList.toggle('active');
-    navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+
+    // Prevent body scroll when menu is open
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   });
 
   // Close mobile nav when clicking a link
@@ -31,7 +39,32 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => {
       navToggle.classList.remove('active');
       navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     });
+  });
+
+  // Close mobile nav when clicking outside
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('open') &&
+        !navLinks.contains(e.target) &&
+        !navToggle.contains(e.target)) {
+      navToggle.classList.remove('active');
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Close mobile nav on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      navToggle.classList.remove('active');
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      navToggle.focus();
+    }
   });
 
   // ========== SMOOTH SCROLL ==========
@@ -44,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (target) {
         e.preventDefault();
         const navHeight = nav.offsetHeight;
-        const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight;
+        const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight - 8;
 
         window.scrollTo({
           top: targetPosition,
