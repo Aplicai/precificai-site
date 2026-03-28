@@ -92,4 +92,21 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
+  // ========== FLOATING CTA ==========
+  const floatingCta = document.getElementById('floatingCta');
+  const heroSection = document.querySelector('.hero');
+
+  if (floatingCta && heroSection) {
+    const handleFloatingCta = () => {
+      const heroBottom = heroSection.getBoundingClientRect().bottom;
+      if (heroBottom < 0) {
+        floatingCta.classList.add('visible');
+      } else {
+        floatingCta.classList.remove('visible');
+      }
+    };
+
+    window.addEventListener('scroll', handleFloatingCta, { passive: true });
+  }
+
 });

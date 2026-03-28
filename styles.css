@@ -99,7 +99,7 @@ img {
 }
 
 .nav-logo img {
-  height: 32px;
+  height: 40px;
   width: auto;
 }
 
@@ -1153,8 +1153,8 @@ img {
 }
 
 .footer-logo img {
-  height: 28px;
-  opacity: 0.7;
+  height: 36px;
+  opacity: 0.8;
 }
 
 .footer-text {
@@ -1392,4 +1392,56 @@ img {
 .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ========================================
+   FLOATING CTA BUTTON
+   ======================================== */
+.floating-cta {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--primary);
+  color: var(--text-light);
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 77, 71, 0.35);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.floating-cta.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.floating-cta:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(0, 77, 71, 0.45);
+}
+
+.floating-cta svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .floating-cta {
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    justify-content: center;
+    padding: 16px 24px;
+    font-size: 16px;
+  }
 }
