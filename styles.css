@@ -483,6 +483,14 @@ img {
   flex-shrink: 0;
 }
 
+.mockup-prod-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
 .mockup-prod-info {
   flex: 1;
   min-width: 0;
