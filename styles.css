@@ -524,7 +524,8 @@ img {
 }
 
 .mockup-prod-margin.positive { color: #2E7D32; }
-.mockup-prod-margin.warning { color: var(--coral); }
+.mockup-prod-margin.warning { color: #d97706; }
+.mockup-prod-margin.negative { color: #dc2626; }
 
 .mockup-prod-price {
   display: block;
@@ -890,6 +891,18 @@ img {
   color: var(--text);
 }
 
+/* Sessão 28.8 — header com contexto do produto exemplo */
+.delivery-row-header {
+  background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  justify-content: flex-start;
+}
+
 .delivery-value {
   font-weight: 700;
   font-size: 15px;
@@ -1077,6 +1090,12 @@ img {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   align-items: start;
+}
+
+/* Sessão 28.8 — variante 2 colunas centralizadas */
+.pricing-grid-2col {
+  grid-template-columns: repeat(2, minmax(280px, 380px));
+  justify-content: center;
 }
 
 .pricing-card {
@@ -1505,11 +1524,14 @@ img {
   }
 
   .hero h1 {
-    font-size: 26px;
+    font-size: 32px;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
   }
 
   .hero-subtitle {
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.5;
   }
 
   .hero-buttons {
