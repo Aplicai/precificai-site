@@ -93,7 +93,10 @@
 
         <div class="hero-buttons">
           <a href="https://app.precificaiapp.com/register" class="btn btn-primary btn-lg">Criar conta grátis</a>
-          <a href="https://app.precificaiapp.com/login" class="btn btn-secondary">Já tenho conta</a>
+          <a href="#video" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            Ver como funciona (5 min)
+          </a>
         </div>
 
         <div class="hero-trust">
@@ -236,6 +239,19 @@
           <h3>Veja o preço certo</h3>
           <p>O sistema mostra o preço sugerido com base no seu custo real, despesas e margem. Simples assim.</p>
         </div>
+      </div>
+
+      <!-- Vídeo tutorial: só a capa carrega com a página; o player do YouTube
+           (versão sem cookie) entra no clique. -->
+      <div class="video-demo animate-on-scroll" id="video">
+        <button type="button" class="video-facade" data-video-id="qG2BFhvEFkU" aria-label="Assistir o vídeo: do primeiro acesso ao preço certo do seu produto">
+          <img src="https://i.ytimg.com/vi/qG2BFhvEFkU/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+          <span class="video-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+          <span class="video-duration" aria-hidden="true">4:48</span>
+        </button>
+        <p class="video-caption">Veja na prática, em 5 minutos: do primeiro acesso ao preço sugerido do seu produto.</p>
       </div>
     </div>
   </section>

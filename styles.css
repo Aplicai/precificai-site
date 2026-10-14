@@ -1933,3 +1933,111 @@ img {
     font-size: 14px;
   }
 }
+
+
+/* ========================================
+   VÍDEO TUTORIAL (Como funciona)
+   ======================================== */
+.video-demo {
+  max-width: 900px;
+  margin: 48px auto 0;
+  text-align: center;
+  scroll-margin-top: 96px; /* o link "Ver como funciona" não esconde o topo atrás do menu fixo */
+}
+
+.video-facade,
+.video-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 12px 32px var(--shadow-md);
+}
+
+.video-facade {
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.video-facade img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.video-facade:hover img,
+.video-facade:focus-visible img {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+.video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 76px;
+  height: 76px;
+  margin: -38px 0 0 -38px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.video-play svg {
+  width: 34px;
+  height: 34px;
+  margin-left: 4px;
+}
+
+.video-facade:hover .video-play,
+.video-facade:focus-visible .video-play {
+  transform: scale(1.08);
+  background: var(--primary-light);
+}
+
+.video-duration {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.video-caption {
+  margin-top: 16px;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.hero-buttons .btn svg {
+  vertical-align: -2px;
+  margin-right: 4px;
+}
+
+@media (max-width: 768px) {
+  .video-demo { margin-top: 32px; }
+  .video-play { width: 60px; height: 60px; margin: -30px 0 0 -30px; }
+  .video-play svg { width: 26px; height: 26px; }
+}

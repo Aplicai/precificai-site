@@ -142,4 +142,24 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleFloatingCta, { passive: true });
   }
 
+
+  // ========== VÍDEO TUTORIAL (carrega o player só no clique) ==========
+  document.querySelectorAll('.video-facade').forEach((facade) => {
+    facade.addEventListener('click', () => {
+      const id = facade.getAttribute('data-video-id');
+      const wrap = document.createElement('div');
+      wrap.className = 'video-frame';
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      iframe.title = 'Precificaí: do primeiro acesso ao preço certo do seu produto';
+      iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      iframe.allowFullscreen = true;
+      wrap.appendChild(iframe);
+      facade.replaceWith(wrap);
+      if (window.pcf && typeof window.pcf.track === 'function') {
+        try { window.pcf.track('AssistiuTutorial'); } catch (e) { /* medição é melhor esforço */ }
+      }
+    });
+  });
+
 });
